@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
@@ -11,11 +10,11 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>guru.springframework</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>sfg-pet-clinic</name>
     <description>SFG Pet Clinic Project</description>
 
@@ -39,11 +38,39 @@
         </dependency>
     </dependencies>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:marcelreckmann/sfg-pet-clinic.git</developerConnection>
+        <tag>0.0.2</tag>
+    </scm>
+
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>install</goals>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <checkModificationExcludes>
+                        <checkModificationExcludes>pom.xml</checkModificationExcludes>
+                        <checkModificationExcludes>pet-clinic-web/target/maven-archiver/pom.properties</checkModificationExcludes>
+                        <checkModificationExcludes>pet-clinic-web/target/pet-clinic-web-0.0.1-SNAPSHOT.jar.original</checkModificationExcludes>
+                        <checkModificationExcludes>pet-clinic-web/target/surefire-reports/TEST-sfgpetclinic.SfgPetClinicApplicationTests.xml</checkModificationExcludes>
+                        <checkModificationExcludes>pet-clinic-web/target/surefire-reports/sfgpetclinic.SfgPetClinicApplicationTests.txt</checkModificationExcludes>
+                        <checkModificationExcludes>pet-clinic-data/pom.xml</checkModificationExcludes>
+                        <checkModificationExcludes>pet-clinic-web/pom.xml</checkModificationExcludes>
+                    </checkModificationExcludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
