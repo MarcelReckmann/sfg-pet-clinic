@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
+import guru.springframework.sfgpetclinic.services.OwnerService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerServices ownerServices;
+    private final OwnerService ownerService;
 
     public DataLoader() {
     }
